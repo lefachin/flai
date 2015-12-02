@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.1.1.final using JasperReports Library version 6.1.1  -->
+<!-- 2015-11-26T06:04:39 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="mapaViagem" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4b3d3f92-1bb2-41ef-8bea-71cfce6b53bb">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="data_viagem" class="java.sql.Date"/>
+	<queryString>
+		<![CDATA[SELECT passagem.poltrona AS POLTRONA, passagem.passagem_id AS NUMERAÇÃO, passagem.data_viagem AS DATA,
+cliente.cliente_nome AS NOME,
+linha.linha_nome AS LINHA
+FROM passagem
+JOIN cliente
+	ON passagem.cliente = cliente.cliente_id
+JOIN linha
+	ON passagem.linha = linha.linha_id
+WHERE passagem.data_viagem = $P{data_viagem}]]>
+	</queryString>
+	<field name="POLTRONA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NUMERAÇÃO" class="java.lang.Integer"/>
+	<field name="DATA" class="java.sql.Date"/>
+	<field name="NOME" class="java.lang.String"/>
+	<field name="LINHA" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="112" y="7" width="330" height="54" uuid="25cce717-1c87-482a-b49f-738cc7fb3602"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="26"/>
+				</textElement>
+				<text><![CDATA[Mapa de Viagem]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="55" splitType="Stretch">
+			<textField>
+				<reportElement x="300" y="12" width="245" height="30" uuid="519bd38c-4f98-4ce3-8a0d-853850f10814"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LINHA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="12" width="110" height="30" uuid="e9009e03-9274-4def-be2d-b179479761c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data da viagem:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="110" y="12" width="100" height="30" uuid="5e1ee558-ae1a-4514-8c12-126d47465b00"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DATA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="230" y="12" width="70" height="30" uuid="3420d56b-5bc9-4497-9cc1-39b1f8666fcb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Linha:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="100" height="30" uuid="5fff5a2c-5de9-4822-94e5-71a63d67545d"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12"/>
+				</textElement>
+				<text><![CDATA[POLTRONA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="10" width="100" height="30" uuid="d64f296c-59f7-4362-9911-c05f091862b8"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12"/>
+				</textElement>
+				<text><![CDATA[NUMERAÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="10" width="280" height="30" uuid="f81b7441-4ee6-48b9-bb8d-24fa8999e306"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12"/>
+				</textElement>
+				<text><![CDATA[NOME]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="17d16871-a254-497d-9c12-04a1afc1c2b9"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{POLTRONA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="30" uuid="378d20fa-9a35-4901-9ba4-ae25cd52de5b"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMERAÇÃO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="280" height="30" uuid="d36570ec-94d3-46eb-bd15-9cfebc1b700a"/>
+				<box>
+					<topPen lineWidth="0.4"/>
+					<leftPen lineWidth="0.4"/>
+					<bottomPen lineWidth="0.4"/>
+					<rightPen lineWidth="0.4"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NOME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="200.0" prefWidth="400.0" styleClass="background" stylesheets="@../../../../../../css/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.unoesc.passagens.view.MapaViagemViewController">
+   <top>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="cbOrigem" prefWidth="150.0" promptText="Origem" />
+            <ComboBox fx:id="cbDestino" prefWidth="150.0" promptText="Destino" />
+         </children>
+         <BorderPane.margin>
+            <Insets top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <bottom>
+      <VBox alignment="TOP_CENTER" prefHeight="155.0" prefWidth="404.0" BorderPane.alignment="CENTER">
+         <children>
+            <DatePicker fx:id="dpDataViagem" />
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#handleConfirmar" text="Confirmar">
+               <VBox.margin>
+                  <Insets top="80.0" />
+               </VBox.margin></Button>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>

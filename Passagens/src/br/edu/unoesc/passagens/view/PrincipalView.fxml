@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" stylesheets="@../../../../../../css/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.unoesc.passagens.view.PrincipalViewController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="700.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="30.0" layoutY="40.0" styleClass="item-title" text="Origem:">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="230.0" layoutY="40.0" styleClass="item-title" text="Destino:">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="468.0" layoutY="40.0" styleClass="item-title" text="Ida">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="562.0" layoutY="40.0" styleClass="item-title" text="Ida e volta">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="468.0" layoutY="97.0" styleClass="item-title" text="Data ida:">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbRetorno" layoutX="468.0" layoutY="178.0" styleClass="item-title" text="Data retorno:">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="13.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbOrigem" layoutX="25.0" layoutY="60.0" prefWidth="150.0" promptText="Escolha a cidade" />
+            <ComboBox fx:id="cbDestino" layoutX="225.0" layoutY="60.0" prefWidth="150.0" promptText="Escolha a cidade" />
+            <RadioButton fx:id="rbIda" layoutX="468.0" layoutY="60.0" mnemonicParsing="false" onAction="#esconderDatePickerRetorno" selected="true">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="rbRetorno" disable="true" layoutX="586.0" layoutY="60.0" mnemonicParsing="false" onAction="#mostrarDatePickerRetorno" toggleGroup="$group" />
+            <DatePicker fx:id="dpIda" layoutX="465.0" layoutY="119.0" />
+            <DatePicker fx:id="dpRetorno" layoutX="465.0" layoutY="200.0" />
+            <Button fx:id="btConfirmar" defaultButton="true" layoutX="517.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleConfirmar" text="Confirmar">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btFinalizar" cancelButton="true" layoutX="496.0" layoutY="336.0" mnemonicParsing="false" onAction="#handleFinalizarSistema" text="Finalizar Sistema">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="13.0" />
+               </font>
+            </Button>
+            <Separator layoutY="372.0" prefHeight="4.0" prefWidth="710.0" />
+            <Label fx:id="lbUsuarioLogado" layoutX="50.0" layoutY="374.0" prefHeight="17.0" prefWidth="268.0" styleClass="item-title" text="Usuario logado:">
+               <font>
+                  <Font name="Lucida Sans Demibold" size="12.0" />
+               </font>
+            </Label>
+            <MenuBar prefHeight="32.0" prefWidth="710.0" styleClass="item-title">
+              <menus>
+                <Menu mnemonicParsing="false" onAction="#handleAlterarDadosClientes" text="Cadastros">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Alterar clientes..." />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Relatórios">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleMapaViagem" text="Mapa de viagem..." />
+                        <MenuItem mnemonicParsing="false" onAction="#handleListarClientes" text="Listar clientes..." />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Ajuda">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleSobre" text="Sobre o sistema" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

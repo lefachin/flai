@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="450.0" styleClass="background" stylesheets="@../../../../../../css/JMetroDarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.unoesc.passagens.view.CadastroClienteVendaViewController">
+   <children>
+      <Label layoutX="10.0" layoutY="50.0" styleClass="item-title" text="CPF:" />
+      <TextField fx:id="tfCPF" layoutX="47.0" layoutY="46.0" promptText="Digite o CPF do cliente" styleClass="text-field" />
+      <Button defaultButton="true" layoutX="200.0" layoutY="42.0" mnemonicParsing="false" onAction="#handleVerificarCPF" text="Verificar CPF" />
+      <Label layoutX="10.0" layoutY="95.0" styleClass="item-title" text="Nome:" />
+      <Label layoutX="10.0" layoutY="130.0" styleClass="item-title" text="RG:" />
+      <Label layoutX="10.0" layoutY="165.0" styleClass="item-title" text="Passaporte" />
+      <Label layoutX="10.0" layoutY="200.0" styleClass="item-title" text="Data de nascimento:" />
+      <TextField fx:id="tfNome" disable="true" layoutX="150.0" layoutY="95.0" prefHeight="25.0" prefWidth="215.0" />
+      <TextField fx:id="tfRG" disable="true" layoutX="150.0" layoutY="130.0" prefHeight="25.0" prefWidth="109.0" />
+      <TextField fx:id="tfPassaporte" disable="true" layoutX="150.0" layoutY="165.0" prefHeight="25.0" prefWidth="109.0" />
+      <TextField fx:id="tfDataNascimento" disable="true" layoutX="150.0" layoutY="200.0" prefHeight="25.0" prefWidth="83.0" promptText="11/04/1995" />
+      <ButtonBar buttonMinWidth="80.0" layoutX="74.0" layoutY="246.0" prefHeight="33.0" prefWidth="262.0">
+        <buttons>
+          <Button mnemonicParsing="false" onAction="#handleCadastrar" text="Confirmar" />
+            <Button cancelButton="true" mnemonicParsing="false" onAction="#handleSair" text="Sair" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>
